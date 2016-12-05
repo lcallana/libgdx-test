@@ -11,31 +11,25 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
-public class MyGdxGame extends Game {
+import screens.PlayScreen;
+
+public class GdxGame extends Game {
+	public static final int V_WIDTH = 400;
+	public static final int V_HEIGHT = 208;
 	public SpriteBatch batch;
-	private Music rainMusic;
 	
 	@Override
 	public void create () {
-		// Load spritebatch
 		batch = new SpriteBatch();
-		
-		// Load Images
-		
-		// Load sound/music
-		rainMusic = Gdx.audio.newMusic(Gdx.files.internal("mus_sansdate.ogg"));
-		rainMusic.setLooping(true);
-		rainMusic.play();
+		setScreen(new PlayScreen(this));
 	}
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(0.5f, 0.5f, 0.5f, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		super.render();
 	}
 	
 	@Override
 	public void dispose () {
-
 	}
 }
